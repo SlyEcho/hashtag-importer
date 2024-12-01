@@ -106,7 +106,7 @@ pub(crate) fn run() -> Result<()> {
                 &lim_upstreams,
                 &lim_import,
             ) {
-                println!("\nHashtag {}: {e:#}", hashtag.name);
+                println!("Hashtag {}: {e:#}", hashtag.name);
                 continue;
             }
         }
@@ -154,10 +154,10 @@ fn import_hashtag(
             continue;
         }
         if let Err(e) = import_status(status, config, lim_queries, lim_upstreams, lim_import) {
-            println!("\nHashtag {}: skipping {status} : {e:#}", hashtag.name);
+            println!("Hashtag {}: skipping {status} : {e:#}", hashtag.name);
             continue;
         }
-        println!("\nHashtag {}: imported {status}", hashtag.name);
+        println!("Hashtag {}: imported {status}", hashtag.name);
         imported_statuses.insert(status.to_string());
     }
     // Keep only the intersection between imported, and seen this iteration.
